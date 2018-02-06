@@ -6,8 +6,6 @@ from bs4 import BeautifulSoup
 # 다음 영화 순위 스크래핑 예제
 # http://ticket2.movie.daum.net/Movie/MovieRankList.aspx
 
-# page = [0, 1, 2, 3, 4] # 페이지
-
 movie_rank = []   # 순위
 movie_title = []  # 제목
 movie_grade = []  # 평점
@@ -22,8 +20,8 @@ source_code = requests.get(URL)
 # print(source_code.text)
 
 plain_text = source_code.text
-# soup = BeautifulSoup(plain_text, 'lxml')
-soup = BeautifulSoup(plain_text, 'html.parser')
+# soup = BeautifulSoup(plain_text, 'lxml')      #  xml 파서(분석기)
+soup = BeautifulSoup(plain_text, 'html.parser') # html 파서(분석기)
 
 # print(soup)
 
