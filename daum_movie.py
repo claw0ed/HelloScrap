@@ -76,3 +76,10 @@ for i in range(0, 20):
     rank = fmt % (movie_rank[i], movie_title[i], movie_grade[i], movie_opdate[i])
     f.write(rank)
 f.close()
+
+# 파일 저장하기 (파이썬3)
+f = open('movie_rank3.txt','w', encoding='utf-8')
+for i in range(0, 20):
+    rank = fmt % (movie_rank[i], movie_title[i], movie_grade[i], movie_opdate[i])
+    f.write(rank)
+f.close()
