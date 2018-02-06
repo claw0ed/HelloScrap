@@ -2,6 +2,7 @@
 
 import requests
 from bs4 import BeautifulSoup
+import codecs
 
 # 다음 영화 순위 스크래핑 예제
 # http://ticket2.movie.daum.net/Movie/MovieRankList.aspx
@@ -59,7 +60,19 @@ for i in range(0, 20):
 
 # 파일 저장하기
 fmt = '%s,%s,%s,%s\n'            # 출력형식 정의
-f = open('movie_rank2.txt', 'w') # 파일을 쓰기모드로 open
-f.write('Hello, Python!!\n')     # 파일에 내용쓰기
-f.write('안녕하세요, 파이썬!!\n')
+f = open('movie_rank2.txt','w') # 파일을 쓰기모드로 open
+# f.write('Hello, Python!!\n')   # 파일에 내용쓰기
+# f.write('안녕하세요, 파이썬!!\n')
+for i in range(0, 20):
+    rank = fmt % (movie_rank[i], movie_title[i], movie_grade[i], movie_opdate[i])
+    # f.write(rank) # 유니코드 문자 저장시 오류발생!! - codecs 추천!
+    # UnicodeEncodeError: 'ascii' codec can't encode characters in position 6-7: ordinal not in range(128)
+    # 파이썬2는 기본적으로 모든 문자를 ascii로 처리
+    # 파일에 기록시에 먼저 ascii로 디코딩하기 때문에 오류발생!
 f.close()                        # 파일 작업종료 (필수!)
+
+f = codecs.open('movie_rank2a.txt','w','utf-8')
+for i in range(0, 20):
+    rank = fmt % (movie_rank[i], movie_title[i], movie_grade[i], movie_opdate[i])
+    f.write(rank)
+f.close()
