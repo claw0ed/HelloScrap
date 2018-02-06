@@ -38,10 +38,3 @@ for title in soup.select('h3'):
 
 for title in soup.select("h3['class=tit']"):
     print(">>>" + title.text)
-
-
-
-
-
-
-

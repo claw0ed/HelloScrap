@@ -23,7 +23,6 @@ plain_text = source_code.text
 # soup = BeautifulSoup(plain_text, 'html.parser') # html 파서(분석기)
 soup = BeautifulSoup(plain_text, 'lxml')          #  xml 파서(분석기)
 
-
 # print(soup)
 
 # 순위 추출
@@ -57,3 +56,10 @@ for i in range(0, 20):
     print(movie_title[i])
     print(movie_grade[i])
     print("%s\n" % (movie_opdate[i]))
+
+# 파일 저장하기
+fmt = '%s,%s,%s,%s\n'            # 출력형식 정의
+f = open('movie_rank2.txt', 'w') # 파일을 쓰기모드로 open
+f.write('Hello, Python!!\n')     # 파일에 내용쓰기
+f.write('안녕하세요, 파이썬!!\n')
+f.close()                        # 파일 작업종료 (필수!)

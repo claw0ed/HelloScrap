@@ -51,4 +51,3 @@ for title in soup.select("a['class=link_txt']"):
 for i in range(0, 15):
     print(news_title[i])
     print("%s\n" % news_desc[i])
-
