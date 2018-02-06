@@ -20,8 +20,9 @@ source_code = requests.get(URL)
 # print(source_code.text)
 
 plain_text = source_code.text
-# soup = BeautifulSoup(plain_text, 'lxml')      #  xml 파서(분석기)
-soup = BeautifulSoup(plain_text, 'html.parser') # html 파서(분석기)
+# soup = BeautifulSoup(plain_text, 'html.parser') # html 파서(분석기)
+soup = BeautifulSoup(plain_text, 'lxml')          #  xml 파서(분석기)
+
 
 # print(soup)
 
