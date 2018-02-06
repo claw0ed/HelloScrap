@@ -24,15 +24,17 @@ curs = conn.cursor()
 
 # sql 문 작성 후 실행
 sql = 'select * from employees'
-rows = curs.execute(sql)
+curs.execute(sql)
 
 # 필요하다면, 실행한 sql 로 부터 데이터 처리
 rows = curs.fetchall()
 for row in rows:
     print(row[0], row[1], row[2])
-    # print(row['lastName'], row['email'], row['jobTitle']) # 인됨!
+    # 오라클에서는 Dict 커서를 공식적으로 지원하지 않음
+
+# cols = dict((name, col) for col, name in enumerate(curs.description))
+# print(cols['JOB_ID']) # 나중에 다시 볼께요
 
 # cursor, connection 닫기
 curs.close()
-
 conn.close()
