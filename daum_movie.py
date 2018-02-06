@@ -78,8 +78,66 @@ for i in range(0, 20):
 f.close()
 
 # 파일 저장하기 (파이썬3)
-f = open('movie_rank3.txt','w', encoding='utf-8')
-for i in range(0, 20):
-    rank = fmt % (movie_rank[i], movie_title[i], movie_grade[i], movie_opdate[i])
-    f.write(rank)
+try: # 예외처리
+    f = open('movie_rank3.txt','w', encoding='utf-8')
+    for i in range(0, 20):
+        rank = fmt % (movie_rank[i], movie_title[i], movie_grade[i], movie_opdate[i])
+        f.write(rank)
+    f.close()
+except Exception as ex: # 예외처리
+    print(ex)
+
+# 파일 읽어 출력하기 (파이썬2)
+# readline : 한줄씩 읽어옴 (추가적으로 while 필요)
+# readlines : 모든 줄을 리스트로 읽어옴 (추가적으로 for 필요)
+# read : 파일 내용 전체 읽어옴 - 주로 바이너리 파일 처리시 사용
+f = codecs.open('movie_rank2a.txt','r','utf-8')
+while True:
+    line = f.readline()
+    if not line: break
+    print(line)
 f.close()
+
+f = codecs.open('movie_rank2a.txt','r','utf-8')
+lines = f.readlines()
+# print(line)
+for line in lines:
+    print(line)
+f.close()
+
+f = codecs.open('movie_rank2a.txt','r','utf-8')
+data = f.read()
+print(data)
+f.close()
+
+# 파일 읽어 출력하기 (파이썬3)
+# f = open('movie_rank3.txt','r', encoding='utf-8')
+# while True:
+#     line = f.readline()
+#     if not line: break
+#     print(line)
+# f.close()
+#
+# f = open('movie_rank3.txt','r', encoding='utf-8')
+# lines = f.readlines()
+# for line in lines:
+#     print(lines)
+# f.close()
+#
+# f = open('movie_rank3.txt','r', encoding='utf-8').read()
+# data = f.read()
+# print(data)
+# f.close()
+
+# with ~ as 구문으로 파일 다루기
+# 파일 작업시 파일을 열고 닫는 것은 번거로운 일임
+# 파이썬이 알아서 닫아주면 어떨까? - 편리함 (파이썬2)
+with codecs.open('movie_rank2a.txt','r','utf-8') as f:
+    data = f.read()
+    print(data)
+
+# 파일 읽기/쓰기 모드
+# r : read (읽기), w : write(쓰기)
+# t : text (텍스트파일), b : binary (바이너리파일 : 이미지)
+# a : append (추가), + : update (수정)
+# 파일모드의 기본값은 :rt
