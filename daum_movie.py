@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 import codecs
 
 # 다음 영화 순위 스크래핑 예제
+# http://movie.daum.net/main/new#slide-1-0
 # http://ticket2.movie.daum.net/Movie/MovieRankList.aspx
 
 movie_rank = []   # 순위

@@ -23,11 +23,11 @@ class MovieSpider(scrapy.Spider):
 
         ranks = response.css('.ico_ranking::text').extract()
         # css 선택자를 이용햐서 클래스가 ico_ranking 인
-        # 모든 항목을 추출해서 rank 변수에 저장
+        # 모든 항목을 추출해서 ranks 변수에 저장
 
         titles = response.css('.link_g::text').extract()
         # css 선택자를 이용해서 클래스가 link_g 인
-        # 모든 항목을 추출해서 title 변수에 저장
+        # 모든 항목을 추출해서 titles 변수에 저장
 
         with codecs.open('movierank.csv', 'w', 'utf-8') as f:
             # 처리결과를 파일에 저장하기 위해

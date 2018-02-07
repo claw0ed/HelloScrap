@@ -8,4 +8,5 @@ from scrapy import cmdline
 # 먼저, pycharm 환경에서 scrapy 가 설치되어 있어야 함@!
 # 단, 우가 설치해야 하는 패키지는 pypiwin32 다!
 
-cmdline.execute("scrapy runspider movieSpider.py".split())
+# cmdline.execute("scrapy runspider movieSpider.py".split())
+cmdline.execute("scrapy runspider currencySpider.py".split())
