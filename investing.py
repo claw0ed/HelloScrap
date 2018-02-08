@@ -34,7 +34,7 @@ soup = BeautifulSoup(source_code, 'lxml')          #  xml 파서(분석기)
 
 # print(soup)
 
-currid = [1,2,3,125,5,6,7,8,650,159] # 종목번호
+currid = [945629,2,3,125,5,6,7,8,650,159] # 종목번호
 
 # 종목 추출
 findkey = 'td["class=left noWrap"]'
@@ -50,6 +50,6 @@ for i in range(0, len(currid)):
         pid_list.append(title.text.strip())
 
 # 모든 내용 출력
-for i in range(0, len(currid)):
+for i in range(0, len(findkey)):
     print(noWrap_list[i])
     print("%s\n" % pid_list[i])

@@ -30,7 +30,7 @@ source_code = driver.page_source # firefox 로 가져온 소스를 source_code �
 # plain_text = source_code.text
 
 # soup = BeautifulSoup(plain_text, 'html.parser') # html 파서(분석기)
-soup = BeautifulSoup(source_code, 'lxml')          #  xml 파서(분석기)
+soup = BeautifulSoup(source_code, 'lxml')         #  xml 파서(분석기)
 
 # print(soup)
 
